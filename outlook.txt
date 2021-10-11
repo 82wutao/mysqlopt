@@ -1,0 +1,48 @@
+lib init/destroy
+
+lib opt
+connection opt
+
+connection connect/close
+
+cmd send/rcv
+
+err_handle
+------------------------------------------------
+interface SQLable {
+    string table();
+    []string clmnsName();
+    []object clmnsValues();
+?    object clmnValue(string name);
+
+insert
+    INSERT INTO {table}{clmns}
+    VALUES ({values}),({values})
+
+delete
+    DELETE FROM {table}
+    WHERE {condition_exp} [AND/OR {condition_exp}]
+update
+    UPDATE {table}
+    SET {assignment_exp} [,{assignment_exp}]
+    WHERE {condition_exp} [AND/OR {condition_exp}]
+query
+    SELECT {clmns}/func(clmn)
+    FROM {table}
+    WHERE {condition_exp} [AND/OR {condition_exp}]
+    GROUP BY {clmns} HAVING {condition_exp} [AND/OR {condition_exp}]
+    ORDER BY {key ASC/DESC} [,{key ASC/DESC}]
+    OFFSETLIMIT {offset,limit}
+
+queryX
+    subquery
+    union
+    join
+
+}
+
+ 1 get a connection
+   connection.insertRecords([]objects)
+   connection.deleteRecords()
+   connection.updateRecords()
+   connection.queryRecords()
