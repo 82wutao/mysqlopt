@@ -15,6 +15,9 @@ interface SQLable {
     []object clmnsValues();
 ?    object clmnValue(string name);
 
+func genInsertSQL([]SQLable)string
+func genDeleteSQL(table,)string
+
 insert
     INSERT INTO {table}{clmns}
     VALUES ({values}),({values})
